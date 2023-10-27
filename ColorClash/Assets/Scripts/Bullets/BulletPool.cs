@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class BulletPool : MonoBehaviour
 {
+    [SerializeField] private GameObject bullet;
+    private GameObject[] bullets;
+    [SerializeField] private int poolSize;
+    private int currentBullet;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitializePool();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitializePool()
     {
-        
+        bullets = new GameObject[poolSize];
+        for(int i = 0; i < poolSize; i++)
+        {
+            bullets[i] = Instantiate(bullet);
+            bullets[i].transform.parent = transform;
+            bullets[i].SetActive(false);
+
+        }
+        currentBullet = 0;
+    }
+
+    public void ShootBullet(Vector3 dir, Vector3 spawnPos)
+    {
+        bullets[currentBullet].SetActive(true);
+        bullets[currentBullet].transform.position = spawnPos;
+        Vector3 movement = dir - spawnPos;
+        bullets[currentBullet].GetComponent<Bullet>().SetDirection(movement.normalized);
+        currentBullet = currentBullet == poolSize-1 ? 0 : currentBullet+= 1;
     }
 }
