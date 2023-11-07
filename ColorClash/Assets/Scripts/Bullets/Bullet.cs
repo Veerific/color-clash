@@ -8,15 +8,28 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 direction;
     [SerializeField] private float speed;
-    // Start is called before the first frame update
-    void Start()
+    public PlayerElement element;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    private void OnEnable()
     {
-        
+        switch(element)
+        {
+            case PlayerElement.Fire:
+                spriteRenderer.color = Color.red; 
+                break;
+            case PlayerElement.Earth: 
+                spriteRenderer.color = Color.green; 
+                break;
+            case PlayerElement.Water: 
+                spriteRenderer.color = Color.blue;
+                break;
+        }
     }
 
     private void FixedUpdate()
     {
-        transform.position += direction * speed;
+        transform.position += new Vector3(direction.x, direction.y, 0f) * speed;
     }
 
 

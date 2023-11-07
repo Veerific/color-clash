@@ -27,12 +27,14 @@ public class BulletPool : MonoBehaviour
         currentBullet = 0;
     }
 
-    public void ShootBullet(Vector3 dir, Vector3 spawnPos)
+    public void ShootBullet(Vector3 dir, Vector3 spawnPos, PlayerElement element)
     {
-        bullets[currentBullet].SetActive(true);
-        bullets[currentBullet].transform.position = spawnPos;
+        Bullet b = bullets[currentBullet].GetComponent<Bullet>();
+        b.element = element;
+        b.gameObject.SetActive(true);
+        b.gameObject.transform.position = spawnPos;
         Vector3 movement = dir - spawnPos;
-        bullets[currentBullet].GetComponent<Bullet>().SetDirection(movement.normalized);
+        b.SetDirection(movement.normalized);
         currentBullet = currentBullet == poolSize-1 ? 0 : currentBullet+= 1;
     }
 }
