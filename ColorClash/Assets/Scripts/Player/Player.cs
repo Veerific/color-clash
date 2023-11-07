@@ -18,12 +18,26 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int health;
 
+    public bool isMoving;
+
 
     void Update()
     {
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
+        if (horizontal != 0 || vertical != 0) isMoving = true; else isMoving =false;
+
+        //temporary disgusting hardcode solution oops
+        if(horizontal < 0)
+        {
+            transform.localScale = new(-8, transform.localScale.y);
+        }
+        if (horizontal > 0)
+        {
+            transform.localScale = new(8, transform.localScale.y);
+        }
+
     }
 
     void FixedUpdate()

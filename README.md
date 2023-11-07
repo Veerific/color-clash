@@ -1,5 +1,13 @@
 # colorclash
 
+Assets Used in the project
+https://penzilla.itch.io/hooded-protagonist -> protag
+https://luizmelo.itch.io/evil-wizard-2 -> boss
+https://cainos.itch.io/pixel-art-top-down-basic -> environment
+https://pimen.itch.io/fire-spell-effect-02 -> explosion
+https://xyezawr.itch.io/free -> bullets
+https://pimen.itch.io/smoke-vfx-1 -> steam
+
 
 
 ## Getting started
