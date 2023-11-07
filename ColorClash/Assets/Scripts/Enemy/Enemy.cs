@@ -5,16 +5,40 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Element element;
+    public Element element;
     public GameObject target;
     [SerializeField] private float speed;
     [SerializeField] private int health;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private Vector2 dir;
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        switch (element)
+        {
+            case Element.Fire:
+                spriteRenderer.color = Color.red;
+                break;
+            case Element.Earth:
+                spriteRenderer.color = Color.green;
+                break;
+            case Element.Water:
+                spriteRenderer.color = Color.blue;
+                break;
+        }
+    }
 
     private void FixedUpdate()
     {
-        Vector2 dir = (target.transform.position - transform.position).normalized;
-        transform.position += new Vector3(dir.x, dir.y, 0) * speed;
 
+        dir = (target.transform.position - transform.position).normalized;
+        transform.position += new Vector3(dir.x, dir.y, 0) * speed;
     }
 
 
@@ -36,6 +60,7 @@ public class Enemy : MonoBehaviour
 
     int CompareWeakness(Element _Element)
     {
+        //Calculates damage based on effectiveness chart
         switch (element)
         {
             case Element.Water:
@@ -52,5 +77,10 @@ public class Enemy : MonoBehaviour
                 break;
         }
         return 1;
+    }
+
+    public void PushAway()
+    {
+
     }
 }

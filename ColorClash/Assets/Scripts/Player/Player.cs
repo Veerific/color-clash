@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D body;
@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private float runSpeed = 20.0f;
+
+    [SerializeField]
+    private int health;
 
 
     void Update()
@@ -33,6 +36,24 @@ public class PlayerMovement : MonoBehaviour
         }
 
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Enemy>().PushAway();
+            Damage();
+        }
+    }
+
+    void Damage()
+    {
+        health--;
+        if(health <= 0)
+        {
+            //Write Death Logic here
+        }
     }
 
 }

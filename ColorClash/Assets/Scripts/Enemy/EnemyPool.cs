@@ -27,12 +27,13 @@ public class EnemyPool : MonoBehaviour
     }
 
     //This could have parameters that determine the spawn of the enemy. 
-    public void SpawnEnemy(Vector2 spawnPos)
+    public void SpawnEnemy(Vector2 spawnPos, Element element)
     {
-        GameObject e = enemies[currentEnemy];
+        Enemy e = enemies[currentEnemy].GetComponent<Enemy>();
+        e.element = element;
         e.transform.position = new(spawnPos.x, spawnPos.y, 0f);
-        e.GetComponent<Enemy>().target = player;
-        e.SetActive(true);
+        e.target = player;
+        e.gameObject.SetActive(true);
         currentEnemy = currentEnemy == poolSize - 1 ? 0 : currentEnemy += 1;
     }
 

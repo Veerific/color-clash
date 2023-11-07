@@ -17,7 +17,15 @@ public class EnemySpawnManually : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
-            pool.SpawnEnemy(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            pool.SpawnEnemy(Camera.main.ScreenToWorldPoint(Input.mousePosition), Element.Fire);
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            pool.SpawnEnemy(Camera.main.ScreenToWorldPoint(Input.mousePosition), Element.Water);
+        }
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            pool.SpawnEnemy(Camera.main.ScreenToWorldPoint(Input.mousePosition), Element.Earth);
         }
     }
 }
