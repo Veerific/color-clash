@@ -8,20 +8,20 @@ public class Bullet : MonoBehaviour
 {
     private Vector3 direction;
     [SerializeField] private float speed;
-    public PlayerElement element;
+    public Element element;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void OnEnable()
     {
         switch(element)
         {
-            case PlayerElement.Fire:
+            case Element.Fire:
                 spriteRenderer.color = Color.red; 
                 break;
-            case PlayerElement.Earth: 
+            case Element.Earth: 
                 spriteRenderer.color = Color.green; 
                 break;
-            case PlayerElement.Water: 
+            case Element.Water: 
                 spriteRenderer.color = Color.blue;
                 break;
         }
@@ -31,8 +31,6 @@ public class Bullet : MonoBehaviour
     {
         transform.position += new Vector3(direction.x, direction.y, 0f) * speed;
     }
-
-
 
     public void SetDirection(Vector3 direction)
     {

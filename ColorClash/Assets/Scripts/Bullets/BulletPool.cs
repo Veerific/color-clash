@@ -27,7 +27,7 @@ public class BulletPool : MonoBehaviour
         currentBullet = 0;
     }
 
-    public void ShootBullet(Vector3 dir, Vector3 spawnPos, PlayerElement element)
+    public void ShootBullet(Vector3 dir, Vector3 spawnPos, Element element)
     {
         Bullet b = bullets[currentBullet].GetComponent<Bullet>();
         b.element = element;
