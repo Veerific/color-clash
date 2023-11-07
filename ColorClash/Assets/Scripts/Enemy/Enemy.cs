@@ -11,12 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Vector2 dir;
-    private Rigidbody2D rb;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
     private void OnEnable()
     {
@@ -47,6 +42,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             Bullet b = collision.GetComponent<Bullet>();
+            
             b.gameObject.SetActive(false);
             Damage(CompareWeakness(b.element));
         }
@@ -55,7 +51,11 @@ public class Enemy : MonoBehaviour
     void Damage(int damage)
     {
         health -= damage;
-        if (health <= 0) gameObject.SetActive(false);
+        if (health <= 0)
+        {
+            target.GetComponent<PlayerMana>().UpdateMana(element);
+            gameObject.SetActive(false);
+        }
     }
 
     int CompareWeakness(Element _Element)
