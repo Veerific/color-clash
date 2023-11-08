@@ -81,8 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: cb26cbcdc478f2949bfdaf466d4eb57c,
-    type: 3}
+  m_Sprite: {fileID: 1699319868, guid: e6de5b899f444814098b9c7c2b0a1ff9, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 0}
   spriteRenderer: {fileID: 7051651630377382015}
+  manager: {fileID: 0}
 --- !u!114 &3717044293315101341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +139,9 @@ MonoBehaviour:
   waterMana: 0
   earthMana: 0
   fireMana: 0
+  didExplosion: 0
+  didSteam: 0
+  didTree: 0
 --- !u!114 &677576095328878734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,17 +157,12 @@ MonoBehaviour:
   explosion: {fileID: 1118116700816895478, guid: 09572555c18a2c24d8eb983322e13671,
     type: 3}
   steam: {fileID: 6508151005489935638, guid: 0a4006844cee02040856ea3e37f8e11e, type: 3}
-  mud: {fileID: 1104086293627260426, guid: c232b29640724fb448d50854b6fa1055, type: 3}
   tree: {fileID: 4541963173777597603, guid: 296490fbca5a852458e11c374c79f3cc, type: 3}
   explosions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   steamClouds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  mudPools:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

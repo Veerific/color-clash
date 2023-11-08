@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 8420717257750315034, guid: 4ca30f706488b9843b581641be189d53, type: 3}
-  poolSize: 30
+  poolSize: 200
   player: {fileID: 0}

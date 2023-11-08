@@ -10,6 +10,7 @@ public class PlayerAbilities : MonoBehaviour
     private int currentE, currentS, currentT;
     public PlayerMana mana;
     Vector2 mousePos;
+
     // Start is called before the first frame update
     void Start()
     {
