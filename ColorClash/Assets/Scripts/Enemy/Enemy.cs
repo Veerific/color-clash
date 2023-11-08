@@ -31,9 +31,12 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         dir = (target.transform.position - transform.position).normalized;
         transform.position += new Vector3(dir.x, dir.y, 0) * speed;
+        if(dir.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        } else spriteRenderer.flipX = true;
     }
 
 

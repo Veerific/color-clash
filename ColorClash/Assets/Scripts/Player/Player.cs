@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D body;
+    public SpriteRenderer spriteRenderer;
 
     float horizontal;
     float vertical;
@@ -31,11 +32,11 @@ public class Player : MonoBehaviour
         //temporary disgusting hardcode solution oops
         if(horizontal < 0)
         {
-            transform.localScale = new(-8, transform.localScale.y);
+            spriteRenderer.flipX = true;
         }
         if (horizontal > 0)
         {
-            transform.localScale = new(8, transform.localScale.y);
+            spriteRenderer.flipX = false;
         }
 
     }

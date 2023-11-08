@@ -32,6 +32,8 @@ public class PlayerShooting : MonoBehaviour
             Element = Element == Element.Earth ? Element.Fire : Element+=1;
         }
 
+        //Add more shooting logic for epic moves
+
         switch (Element)
         {
             case Element.Fire:
