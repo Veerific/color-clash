@@ -7,7 +7,11 @@ https://cainos.itch.io/pixel-art-top-down-basic -> environment
 https://pimen.itch.io/fire-spell-effect-02 -> explosion
 https://xyezawr.itch.io/free -> bullets
 https://pimen.itch.io/smoke-vfx-1 -> steam
-
+https://crusenho.itch.io/complete-gui-essential-pack -> GUI
+https://elv-games.itch.io/free-inventory-asset-pack -> GUI
+https://pixerelia.itch.io/vas-basic-spells-and-buffs -> SPELL ICONS
+https://nimblebeastscollective.itch.io/nb-pixel-font-bundle -> Font
+https://clockworkraven.itch.io/rpg-icon-pack-jewels-and-gems -> more icons
 
 
 ## Getting started

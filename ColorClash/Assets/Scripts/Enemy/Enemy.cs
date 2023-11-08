@@ -11,7 +11,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Vector2 dir;
+    bool inHotSteam;
+    float timer;
 
+    private void Start()
+    {
+        timer = .5f;
+    }
 
     private void OnEnable()
     {
@@ -39,6 +45,20 @@ public class Enemy : MonoBehaviour
         } else spriteRenderer.flipX = true;
     }
 
+    private void Update()
+    {
+        if (inHotSteam)
+        {
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                print("ow");
+                Damage(1);
+                timer = .5f;
+            }
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -49,16 +69,49 @@ public class Enemy : MonoBehaviour
             b.gameObject.SetActive(false);
             Damage(CompareWeakness(b.element));
         }
+        if (collision.CompareTag("Explosion"))
+        {
+            Death();
+        }
+        //scuffed solution oops
+        if (collision.CompareTag("Steam"))
+        {
+            inHotSteam = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Steam"))
+        {
+            inHotSteam = false;
+        }
     }
 
     void Damage(int damage)
     {
+        StartCoroutine(DamageAnim());
         health -= damage;
         if (health <= 0)
         {
-            target.GetComponent<PlayerMana>().UpdateMana(element);
-            gameObject.SetActive(false);
+            Death();
         }
+    }
+
+    IEnumerator DamageAnim()
+    {
+        Color original = spriteRenderer.color;
+        spriteRenderer.color = Color.yellow;
+
+        yield return new WaitForSeconds(.1f);
+
+        spriteRenderer.color = original;
+    }
+
+    void Death()
+    {
+        target.GetComponent<PlayerMana>().UpdateMana(element);
+        gameObject.SetActive(false);
     }
 
     int CompareWeakness(Element _Element)
@@ -80,10 +133,5 @@ public class Enemy : MonoBehaviour
                 break;
         }
         return 1;
-    }
-
-    public void PushAway()
-    {
-
     }
 }

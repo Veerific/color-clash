@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - Steam
+  - Explosion
+  - Mud
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -54,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1594720651
+    locked: 0
+  - name: Enemy
+    uniqueID: 1813635773
     locked: 0

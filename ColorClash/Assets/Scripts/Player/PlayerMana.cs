@@ -7,17 +7,6 @@ public class PlayerMana : MonoBehaviour
     public int waterMana;
     public int earthMana;
     public int fireMana;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateMana(Element enemy)
     {
@@ -31,6 +20,19 @@ public class PlayerMana : MonoBehaviour
             case Element.Fire:
                 fireMana++; 
                 break;    
+        }
+    }
+
+    public void DecreaseMana(Element element)
+    {
+        switch (element)
+        {
+            case Element.Water:
+                waterMana -= 10; break;
+            case Element.Earth:
+                earthMana -= 10; break;
+            case Element.Fire:
+                fireMana -= 10; break;
         }
     }
 }

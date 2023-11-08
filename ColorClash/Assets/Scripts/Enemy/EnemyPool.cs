@@ -26,7 +26,6 @@ public class EnemyPool : MonoBehaviour
         }
     }
 
-    //This could have parameters that determine the spawn of the enemy. 
     public void SpawnEnemy(Vector2 spawnPos, Element element)
     {
         Enemy e = enemies[currentEnemy].GetComponent<Enemy>();
