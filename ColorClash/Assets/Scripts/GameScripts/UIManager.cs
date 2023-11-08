@@ -8,8 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI water, grass, fire;
     public PlayerMana mana;
+    public Sprite waterSprite, grassSprite, fireSprite;
 
-    public Image explosion, tree, steam;
+    public Image explosion, tree, steam, icon;
 
     private void Start()
     {
@@ -27,6 +28,23 @@ public class UIManager : MonoBehaviour
         UpdateImages();
     }
 
+    public void UpdateIcon(Element element)
+    {
+        switch (element)
+        {
+            case Element.Earth:
+                icon.sprite = grassSprite;
+                break;
+            case Element.Water: 
+                icon.sprite = waterSprite;
+                break;
+            case Element.Fire:
+                icon.sprite = fireSprite;
+                break;
+        }
+    }
+
+    //It would probably useful to instead of update this every frame, to call whenever its needed in a different script
     void UpdateImages()
     {
         //Fire Grass Mana
@@ -44,9 +62,7 @@ public class UIManager : MonoBehaviour
         {
             tree.color = new(1, 1, 1, 1);
         }
-
         
-
         if (mana.didExplosion)
         {
             mana.didExplosion = false;

@@ -9,10 +9,12 @@ public class PlayerShooting : MonoBehaviour
     //Note to Self: decouple this system next time, might looks cleaner
     private Element Element;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    public UIManager manager;
     // Start is called before the first frame update
     void Start()
     {
         Element = Element.Water;
+        manager.UpdateIcon(Element);
     }
 
     // Update is called once per frame
@@ -27,9 +29,11 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Element = Element == Element.Fire ? Element.Earth : Element-=1;
+            manager.UpdateIcon(Element);
         }
         if (Input.GetKeyDown(KeyCode.E)){
             Element = Element == Element.Earth ? Element.Fire : Element+=1;
+            manager.UpdateIcon(Element);
         }
 
         //Add more shooting logic for epic moves
