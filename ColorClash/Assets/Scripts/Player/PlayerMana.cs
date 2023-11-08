@@ -7,7 +7,7 @@ public class PlayerMana : MonoBehaviour
     public int waterMana;
     public int earthMana;
     public int fireMana;
-
+    public bool didExplosion, didSteam, didTree;
     public void UpdateMana(Element enemy)
     {
         switch(enemy) {
@@ -23,16 +23,32 @@ public class PlayerMana : MonoBehaviour
         }
     }
 
-    public void DecreaseMana(Element element)
+    public void DecreaseMana(Spell spell)
     {
-        switch (element)
+        switch (spell)
         {
-            case Element.Water:
-                waterMana -= 10; break;
-            case Element.Earth:
-                earthMana -= 10; break;
-            case Element.Fire:
-                fireMana -= 10; break;
+            case Spell.Tree:
+                didTree = true;
+                waterMana -= 10; 
+                earthMana -= 10; 
+                break;
+            case Spell.Explosion:
+                didExplosion = true;
+                earthMana -= 10; 
+                fireMana -= 10;
+                break;
+            case Spell.Steam:
+                didSteam = true;
+                fireMana -= 10; 
+                waterMana -= 10;
+                break;
         }
     }
+}
+
+public enum Spell
+{
+    Tree,
+    Explosion,
+    Steam
 }

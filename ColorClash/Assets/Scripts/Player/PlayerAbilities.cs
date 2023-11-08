@@ -48,7 +48,6 @@ public class PlayerAbilities : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             TreeSpell(mousePos);
         }
-        //
     }
 
     void SteamSpell(Vector2 pos)
@@ -57,6 +56,7 @@ public class PlayerAbilities : MonoBehaviour
         obj.SetActive(true);
         obj.transform.position = pos;
         currentS = currentS < 2 ? currentS += 1 : 0;
+        mana.DecreaseMana(Spell.Steam);
     }
     void TreeSpell(Vector2 pos)
     {
@@ -64,6 +64,7 @@ public class PlayerAbilities : MonoBehaviour
         obj.SetActive(true);
         obj.transform.position = pos;
         currentT = currentT < 2 ? currentT += 1 : 0;
+        mana.DecreaseMana(Spell.Tree);
     }
     void ExplosionSpell(Vector2 pos)
     {
@@ -71,5 +72,6 @@ public class PlayerAbilities : MonoBehaviour
         obj.SetActive(true);
         obj.transform.position = pos;
         currentE = currentE < 2 ? currentE += 1 : 0;
+        mana.DecreaseMana(Spell.Explosion);
     }
 }
