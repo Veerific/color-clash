@@ -32,19 +32,19 @@ public class PlayerAbilities : MonoBehaviour
     void Update()
     {
         //Fire Grass Mana
-        if (Input.GetKeyDown(KeyCode.Alpha1) && mana.fireMana >= 10 && mana.earthMana >= 10)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && mana.explo)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             ExplosionSpell(mousePos);
         }
         //Fire Water Mana
-        if (Input.GetKeyDown(KeyCode.Alpha2) && mana.fireMana >= 10 && mana.waterMana >= 10)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && mana.steam)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             SteamSpell(mousePos);
         }
         //Water Grass Mana
-        if (Input.GetKeyDown(KeyCode.Alpha3) && mana.waterMana >= 10 && mana.earthMana >= 10)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && mana.tree)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             TreeSpell(mousePos);

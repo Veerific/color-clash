@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Element element;
     public GameObject target;
     [SerializeField] private float speed;
-    [SerializeField] private int health;
+    [SerializeField] private float health;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Vector2 dir;
     bool inHotSteam;
@@ -51,8 +51,7 @@ public class Enemy : MonoBehaviour
         {
             timer -= Time.deltaTime;
             if(timer <= 0)
-            {
-                print("ow");
+            {            
                 Damage(1);
                 timer = .5f;
             }
@@ -88,7 +87,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Damage(int damage)
+    void Damage(float damage)
     {
         StartCoroutine(DamageAnim());
         health -= damage;
@@ -114,22 +113,22 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    int CompareWeakness(Element _Element)
+    float CompareWeakness(Element _Element)
     {
         //Calculates damage based on effectiveness chart
         switch (element)
         {
             case Element.Water:
                 if (_Element == Element.Earth) return 2;
-                if (_Element == Element.Fire) return 0;
+                if (_Element == Element.Fire) return .5f;
                 break;
             case Element.Fire:
                 if (_Element == Element.Water) return 2;
-                if (_Element == Element.Earth) return 0;
+                if (_Element == Element.Earth) return .5f;
                 break;
             case Element.Earth:
                 if (_Element == Element.Fire) return 2;
-                if (_Element == Element.Water) return 0;
+                if (_Element == Element.Water) return .5f;
                 break;
         }
         return 1;

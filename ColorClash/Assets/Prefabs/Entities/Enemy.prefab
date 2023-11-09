@@ -103,7 +103,7 @@ MonoBehaviour:
   element: 0
   target: {fileID: 0}
   speed: 0.1
-  health: 5
+  health: 3
   spriteRenderer: {fileID: 2406921090268428444}
 --- !u!70 &671710131895324435
 CapsuleCollider2D:
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8420717257750315034}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

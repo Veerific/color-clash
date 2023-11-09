@@ -11,16 +11,18 @@ public class Levels : MonoBehaviour
     float halfHeight, halfWidth;
     public int state;
     private bool finished;
+    public GameObject boss;
     void Start()
     {
         //CameraView information
         Camera camera = Camera.main ?? throw new ArgumentNullException("Camera.main");
         halfHeight = camera.orthographicSize;
         halfWidth = camera.aspect * halfHeight;
+        boss = Instantiate(boss);
+        Boss(boss);
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(state == 0)
@@ -42,7 +44,7 @@ public class Levels : MonoBehaviour
         if (state == 3 && finished)
         {
             finished = false;
-            //boss()
+            Boss(boss);
             state++;
         }
     }
@@ -154,53 +156,57 @@ public class Levels : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
-            if (element == (Element)3) element = 0;
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(-halfWidth - 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
 
-            spawnPos = new(-halfWidth - 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
+            element = (Element)UnityEngine.Random.Range(0, 2);
+            spawnPos = new(UnityEngine.Random.Range(-halfWidth, halfWidth), -halfHeight - 1);
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
 
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(halfWidth + 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
 
-            spawnPos = new(halfWidth + 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
+            element = (Element)UnityEngine.Random.Range(0, 2);
+            spawnPos = new(UnityEngine.Random.Range(-halfWidth, halfWidth), -halfHeight - 1);
             pool.SpawnEnemy(spawnPos, element);
-            element++;
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(1f);
         }
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
-            if (element == (Element)3) element = 0;
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(-halfWidth - 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
 
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(-halfWidth - 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
 
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(halfWidth + 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
 
+            element = (Element)UnityEngine.Random.Range(0, 2);
             spawnPos = new(halfWidth + 1, UnityEngine.Random.Range(-halfHeight, halfHeight));
             pool.SpawnEnemy(spawnPos, element);
-            element++;
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
         }
 
         finished = true;
     }
     void Boss(GameObject obj)
     {
-        //obj.spawn or something
+        obj.SetActive(true);
     }
 }
 

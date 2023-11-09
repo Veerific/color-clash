@@ -507,7 +507,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150797509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b59fad645f899774aaa3988aa4ad40d9, type: 3}
   m_Name: 
@@ -679,7 +679,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 506518178}
-  state: 0
+  state: 4
+  boss: {fileID: 3649897087509116552, guid: 4526241e059c9a340ac0db358594d121, type: 3}
 --- !u!4 &355555233
 Transform:
   m_ObjectHideFlags: 0
@@ -689,7 +690,7 @@ Transform:
   m_GameObject: {fileID: 355555231}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8355503, y: 6.193908, z: -0.063679494}
+  m_LocalPosition: {x: 0, y: 0, z: -0.063679494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1492,7 +1493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 81.9, y: -30}
+  m_AnchoredPosition: {x: 81.8999, y: -30}
   m_SizeDelta: {x: 89.119995, y: 89.119995}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1583409194
@@ -22897,13 +22898,18 @@ PrefabInstance:
       objectReference: {fileID: 819265728}
     - target: {fileID: 3717044293315101341, guid: 8bd9721187eff6945aba9e8133d64a99,
         type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 355555234}
+    - target: {fileID: 3717044293315101341, guid: 8bd9721187eff6945aba9e8133d64a99,
+        type: 3}
       propertyPath: earthMana
-      value: 70
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3717044293315101341, guid: 8bd9721187eff6945aba9e8133d64a99,
         type: 3}
       propertyPath: waterMana
-      value: 77
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932105287560532232, guid: 8bd9721187eff6945aba9e8133d64a99,
         type: 3}
