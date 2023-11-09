@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 506518178}
-  state: 4
+  state: 0
   boss: {fileID: 3649897087509116552, guid: 4526241e059c9a340ac0db358594d121, type: 3}
 --- !u!4 &355555233
 Transform:
@@ -667,6 +667,8 @@ MonoBehaviour:
   water: {fileID: 1846750195}
   grass: {fileID: 1978261496}
   fire: {fileID: 1033388296}
+  health: {fileID: 1115837764}
+  player: {fileID: 819265740}
   mana: {fileID: 819265734}
   waterSprite: {fileID: 1869800114, guid: 071569e83e735e24da8b12a5e349f5a2, type: 3}
   grassSprite: {fileID: 181291286, guid: 071569e83e735e24da8b12a5e349f5a2, type: 3}
@@ -996,6 +998,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5a60f90076fd64c8676f86050679bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &819265740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2624846189376286796, guid: 8bd9721187eff6945aba9e8133d64a99,
+    type: 3}
+  m_PrefabInstance: {fileID: 5443082829757738076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819265720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863753bbd6207eb4681a2697e707277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &976111842
