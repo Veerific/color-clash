@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI water, grass, fire;
+    public TextMeshProUGUI water, grass, fire, health;
+    public Player player;
     public PlayerMana mana;
     public Sprite waterSprite, grassSprite, fireSprite;
 
@@ -25,6 +27,7 @@ public class UIManager : MonoBehaviour
         water.text = mana.waterMana.ToString();
         grass.text = mana.earthMana.ToString();
         fire.text = mana.fireMana.ToString();
+        health.text = player.health.ToString();
     }
 
     public void UpdateIcon(Element element)

@@ -19,6 +19,7 @@ public class BossPhases : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public bool inHotSteam;
     private float timer;
+    public GameManager manager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class BossPhases : MonoBehaviour
         currentElement = Element.Earth;
         player = GameObject.Find("Player");
         shielded = true;
+        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     private void Update()
     {
@@ -137,7 +139,7 @@ public class BossPhases : MonoBehaviour
     {
         animator.SetBool("Dead", true);
         GetComponent<CapsuleCollider2D>().enabled = false;
-        //notify the game system that the boss is dead
+        manager.Win();
     }
 }
 

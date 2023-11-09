@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 915299763822084985}
   - component: {fileID: 3717044293315101341}
   - component: {fileID: 677576095328878734}
-  - component: {fileID: 8316017036751380407}
   - component: {fileID: 4715178483354377411}
   - component: {fileID: 4932105287560532232}
   - component: {fileID: 3123171620354669455}
@@ -78,11 +77,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1594720651
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1699319868, guid: e6de5b899f444814098b9c7c2b0a1ff9, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,10 +104,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 4715178483354377411}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 7051651630377382015}
+  animator: {fileID: 3123171620354669455}
+  gameManager: {fileID: 0}
   runSpeed: 13
   health: 5
   isMoving: 0
+  isDead: 0
 --- !u!114 &915299763822084985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,9 +141,10 @@ MonoBehaviour:
   waterMana: 0
   earthMana: 0
   fireMana: 0
-  didExplosion: 0
-  didSteam: 0
-  didTree: 0
+  explo: 0
+  steam: 0
+  tree: 0
+  manager: {fileID: 0}
 --- !u!114 &677576095328878734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,20 +174,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mana: {fileID: 3717044293315101341}
---- !u!114 &8316017036751380407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505743943480940655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23169bb3f5c3a040a40403f913a668c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 3123171620354669455}
-  player: {fileID: 2624846189376286796}
 --- !u!50 &4715178483354377411
 Rigidbody2D:
   serializedVersion: 4

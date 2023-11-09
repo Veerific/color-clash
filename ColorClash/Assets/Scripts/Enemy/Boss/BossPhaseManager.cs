@@ -152,7 +152,7 @@ public class BossPhaseManager : MonoBehaviour
         //scuffed solution oops
         if (collision.CompareTag("Steam"))
         {
-            inHotSteam = true;
+            phase.inHotSteam = true;
         }
     }
 

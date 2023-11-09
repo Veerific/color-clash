@@ -38,4 +38,11 @@ public class EnemyBulletPool : MonoBehaviour
         b.SetDirection(movement.normalized);
         currentBullet = currentBullet == poolSize - 1 ? 0 : currentBullet += 1;
     }
+    public void CleanPool()
+    {
+        for (int i = 0; i < bullets.Length; i++)
+        {
+            bullets[i].SetActive(false);
+        }
+    }
 }

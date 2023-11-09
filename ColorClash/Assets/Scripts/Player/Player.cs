@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    public GameManager gameManager;
 
     float horizontal;
     float vertical;
@@ -17,9 +19,10 @@ public class Player : MonoBehaviour
     private float runSpeed = 20.0f;
 
     [SerializeField]
-    private int health;
+    public int health;
 
     public bool isMoving;
+    public bool isDead;
 
 
     void Update()
@@ -27,10 +30,10 @@ public class Player : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxisRaw("Horizontal"); // -1 is left
         vertical = Input.GetAxisRaw("Vertical"); // -1 is down
-        if (horizontal != 0 || vertical != 0) isMoving = true; else isMoving =false;
+        if (horizontal != 0 || vertical != 0) isMoving = true; else isMoving = false;
 
         //temporary disgusting hardcode solution oops
-        if(horizontal < 0)
+        if (horizontal < 0)
         {
             spriteRenderer.flipX = true;
         }
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-
+        animator.SetBool("IsWalking", isMoving);
     }
 
     void FixedUpdate()
@@ -56,18 +59,25 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-        {          
+        {
+            collision.gameObject.SetActive(false);
             Damage();
         }
+
     }
 
     void Damage()
     {
         health--;
-        if(health <= 0)
+        if (health <= 0)
         {
-            //Write Death Logic here
+            GameOver();
         }
+    }
+    void GameOver()
+    {
+        animator.SetBool("isDead", true);
+        gameManager.GameOver();
     }
 
 }

@@ -36,4 +36,12 @@ public class EnemyPool : MonoBehaviour
         currentEnemy = currentEnemy == poolSize - 1 ? 0 : currentEnemy += 1;
     }
 
+    public void CleanPool()
+    {
+        for(int i =0; i < enemies.Length; i++)
+        {
+            enemies[i].SetActive(false);
+        }
+    }
+
 }

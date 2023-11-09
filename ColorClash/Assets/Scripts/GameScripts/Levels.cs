@@ -19,7 +19,7 @@ public class Levels : MonoBehaviour
         halfHeight = camera.orthographicSize;
         halfWidth = camera.aspect * halfHeight;
         boss = Instantiate(boss);
-        Boss(boss);
+        boss.SetActive(false);
         
     }
 
@@ -44,7 +44,7 @@ public class Levels : MonoBehaviour
         if (state == 3 && finished)
         {
             finished = false;
-            Boss(boss);
+            Invoke("Boss", 5f);
             state++;
         }
     }
@@ -204,9 +204,9 @@ public class Levels : MonoBehaviour
 
         finished = true;
     }
-    void Boss(GameObject obj)
+    void Boss()
     {
-        obj.SetActive(true);
+        boss.SetActive(true);
     }
 }
 
