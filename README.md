@@ -3,15 +3,25 @@
 ## Credits
 
 https://penzilla.itch.io/hooded-protagonist -> Protagonist Sprite
+
 https://luizmelo.itch.io/evil-wizard-2 -> Boss Sprite
+
 https://cainos.itch.io/pixel-art-top-down-basic -> environment
+
 https://pimen.itch.io/fire-spell-effect-02 -> Explosion Sprites
+
 https://xyezawr.itch.io/free -> Bullet Sprites
+
 https://pimen.itch.io/smoke-vfx-1 -> Steam Sprites
+
 https://crusenho.itch.io/complete-gui-essential-pack -> GUI
+
 https://elv-games.itch.io/free-inventory-asset-pack -> GUI
+
 https://pixerelia.itch.io/vas-basic-spells-and-buffs -> Spell Icons
+
 https://clockworkraven.itch.io/rpg-icon-pack-jewels-and-gems -> Other Icons
+
 https://caffinate.itch.io/abaddon -> Font
 
 ## Desc
